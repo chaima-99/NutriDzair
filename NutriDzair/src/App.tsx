@@ -1,11 +1,11 @@
-import React from 'react';
-import MealPlanner from './pages/MealPlanner/MealPlanner';
-import './App.css';
-
+import MealCard from './pages/MealCard'
 function App() {
 
   return (
-    <MealPlanner/>
+    <>
+  <h1>Welcome to NutriDzair</h1>
+  <MealCard/>
+  </>
   )
 }
 
