@@ -1,9 +1,11 @@
-import MealCard from './MealCard';
+import React from 'react';
 
 function App() {
 
   return (
-    <MealCard />
+    <>
+  <h1>Welcome to NutriDzair</h1>
+  </>
   )
 }
 
