@@ -1,0 +1,22 @@
+.hero {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 3rem;
+    font-family: Poppins, sans-serif;
+    h1 {
+        color: var(--text-300, #555);
+        font-size: 4.8rem;
+        font-style: normal;
+        font-weight:bold;
+        line-height: normal;
+        text-align: center;
+    }
+}
+@font-face {
+    font-family: Poppins;
+    src: url('src/assets/fonts/Poppins/Poppins-Regular.ttf');
+}

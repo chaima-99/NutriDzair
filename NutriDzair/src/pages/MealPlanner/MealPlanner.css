@@ -1,0 +1,17 @@
+.mealPlanner-body{
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    color: black;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+}
+.green-blank{
+    background-color: #2E7C31;
+    color: white;
+    width: 50%;
+    height: 100%;
+    border-radius: 2rem;
+}
