@@ -131,11 +131,11 @@ function MealCard() {
       </div>
 
       <div className="flex items-center justify-center space-x-4 mb-6">
-        <button onClick={handlePreviousDay} className="p-1">
+        <button onClick={handlePreviousDay} className="p-1" title='blank'>
           <ChevronLeftIcon boxSize={5} color="gray.500" />
         </button>
         <h2 className="text-xl font-medium text-gray-700">{currentDay.day}</h2>
-        <button onClick={handleNextDay} className="p-1">
+        <button onClick={handleNextDay} className="p-1" title='blank'>
           <ChevronRightIcon boxSize={5} color="gray.500" />
         </button>
       </div>
