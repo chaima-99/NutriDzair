@@ -1,6 +1,8 @@
 import React from 'react'
 import HeroSection from '../Components/Sections/HeroSection.tsx'
 import AboutSection from '../Components/Sections/AboutSection.tsx'
+import FeaturesSection from '../Components/Sections/FeaturesSection.tsx'
+import FinalSection from '../Components/Sections/FinalSection.tsx'
 
 
 const Homepage = () => {
@@ -9,6 +11,8 @@ const Homepage = () => {
 
             <HeroSection />
             <AboutSection />
+            <FeaturesSection />
+            <FinalSection />
         </div>
     )
 }
