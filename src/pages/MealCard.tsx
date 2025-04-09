@@ -1,11 +1,11 @@
 import { useState } from 'react';
+import { Icon } from '@chakra-ui/react';
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
-  CalendarIcon, 
-  PhoneIcon } from '@chakra-ui/icons';
-import { Icon, Icon as FireIcon } from '@chakra-ui/react';
-
+  CalendarIcon, } from '@chakra-ui/icons';
+import { FaFire } from "react-icons/fa";
+import { MdHome } from "react-icons/md";
 const mockDatabase = {
   user: {
     name: "Fateh",
@@ -165,7 +165,7 @@ function MealCard() {
             </svg>
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
               <span className="text-2xl font-bold text-gray-700">{currentDay.totalCalories}</span>
-              <Icon as={FireIcon} boxSize={4} color="orange.500" />
+              <Icon as={FaFire} boxSize={4} color="orange.500" />
             </div>
           </div>
         </div>
@@ -268,7 +268,7 @@ function MealCard() {
           Weekly view
         </button>
         <button className="text-gray-500 py-2 px-4 rounded-full border border-gray-200 flex items-center justify-center w-64">
-          <Icon as={PhoneIcon} boxSize={4} mr={2} />
+          <Icon as={MdHome} boxSize={4} mr={2} />
           return to homescreen
         </button>
       </div>
