@@ -1,12 +1,20 @@
-import MealCard from './pages/MealCard'
-function App() {
+// App.tsx
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import HomePage from './pages/Homepage';
 
+
+// Create router with all your routes
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <HomePage />,
+  },
+]);
+
+function App() {
   return (
-    <>
-  <h1>Welcome to NutriDzair</h1>
-  <MealCard/>
-  </>
-  )
+    <RouterProvider router={router} />
+  );
 }
 
-export default App
+export default App;

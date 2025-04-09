@@ -11,4 +11,42 @@ html, body, #root {
   padding: 0;
 }
 
+/* Custom styles for elongated letters */
+.elongated-t,
+.elongated-a {
+  position: relative; /* Needed for absolute positioning of the pseudo-element */
+  display: inline-block; /* Ensure span behaves correctly */
+}
 
+/* Style for the 't' crossbar */
+.elongated-t::after {
+  content: '';
+  position: absolute;
+  background-color: currentColor; /* Inherit text color */
+  height: 3px; /* Adjust thickness - depends on font size */
+  width: 180%; /* Adjust width - make it wider than the letter */
+  left: -40%;  /* Adjust horizontal position - negative value starts before the letter */
+  top: 48%;   /* Adjust vertical position - fine-tune to match the 't' crossbar */
+  transform: translateY(-50%); /* Center vertically precisely */
+  z-index: -1; /* Optional: Place it behind the character if needed, though usually not necessary */
+}
+
+/* Style for the 'a' crossbar (might need different positioning) */
+.elongated-a::after {
+  content: '';
+  position: absolute;
+  background-color: currentColor;
+  height: 3px; /* Adjust thickness */
+  width: 150%; /* Adjust width */
+  left: -25%; /* Adjust horizontal position */
+  top: 55%;  /* Adjust vertical position for 'a' */
+  transform: translateY(-50%);
+  z-index: -1;
+}
+
+/* Ensure the original letter is visible if the bar goes behind */
+.elongated-t,
+.elongated-a {
+   /* Optionally add padding if needed, but often not required */
+   /* padding: 0 0.1em; */
+}
