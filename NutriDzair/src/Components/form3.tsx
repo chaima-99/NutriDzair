@@ -162,7 +162,12 @@ export default function Form3({ Data }: { Data: Record<string, any> }) {
         }
 
         // Check other required fields
-        if (!form.cuisine || !form.variety) return false;
+        if (!form.cuisine || !form.variety)
+            {
+                console.log("Missing required fields: cuisine or variety");
+             return false;
+            }
+                
 
         return true;
     }
@@ -346,9 +351,9 @@ export default function Form3({ Data }: { Data: Record<string, any> }) {
                 <RadioGroup.Root
                     className="radio-group"
                     colorPalette={"green"}
-                    {...register("variety")}
                     onValueChange={(value) => {
                         if (value && value.value) {
+                            console.log("variety selected:", value.value);
                             setValue("variety", value.value.toString());
                             handleChange({ ...watchall, variety: value.value.toString() });
                         }

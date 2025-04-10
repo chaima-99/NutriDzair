@@ -169,7 +169,7 @@ export default function Form2({ Data }: { Data: Record<string, any> }) {
             return false;
         }
 
-        
+
 
         // Check other required fields
         if (!form.restriction || !form.allergy) return false;

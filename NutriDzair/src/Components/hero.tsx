@@ -5,6 +5,8 @@ import Form3 from "./form3"
 import {Button,Steps,
 } from "@chakra-ui/react"
 import { useEffect, useState, useRef} from "react"
+import { useNavigate } from 'react-router-dom';
+
 import { Icon } from "@chakra-ui/react"
 //******************************************** Icons ******************************************** /
 import { GoArrowLeft } from "react-icons/go";
@@ -13,8 +15,9 @@ function Hero() {
     
     //*************************  references declaration  *************************
     const title = useRef<HTMLHeadingElement>(null)
-    const [step, setStep] = useState(0)
+    const [step, setStep] = useState(2)
     //updating the title of the form based on the step
+    const navigate = useNavigate(); // ✅ move to top level
     useEffect(() => {
         switch (step) {
             case 0:
@@ -28,6 +31,8 @@ function Hero() {
                 break
             case 3:
                 //go to the loading page
+                navigate("/loading")
+                break
             default:
                 title.current!.innerText = "User Profile"
         }

@@ -121,6 +121,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        color: #008000;
     }
     .input-number{
         /*green theme*/
