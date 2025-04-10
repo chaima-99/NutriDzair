@@ -1,11 +1,8 @@
+// src/App.jsx
 import { useState } from 'react';
-import {
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  CalendarIcon, 
-  PhoneIcon } from '@chakra-ui/icons';
-import { Icon, Icon as FireIcon } from '@chakra-ui/react';
+import { ChevronLeft, ChevronRight, Flame, Home, Calendar } from 'lucide-react';
 
+// Mock database with all days of the week
 const mockDatabase = {
   user: {
     name: "Fateh",
@@ -28,7 +25,11 @@ const mockDatabase = {
           name: "Avocado Toast with Eggs",
           description: "Whole grain toast topped with avocado and two poached eggs. Served with a side of berries.",
           calories: 400,
-          macros: { protein: 50, carbs: 50, fats: 50 },
+          macros: {
+            protein: 50,
+            carbs: 50,
+            fats: 50
+          },
           rating: 4.8,
           cost: "210.00DA",
           tags: ["Mediterranean"]
@@ -39,7 +40,11 @@ const mockDatabase = {
           name: "Grilled Chicken Salad",
           description: "Fresh mixed greens with grilled chicken, cherry tomatoes, cucumber and light vinaigrette.",
           calories: 500,
-          macros: { protein: 50, carbs: 50, fats: 50 },
+          macros: {
+            protein: 50,
+            carbs: 50,
+            fats: 50
+          },
           rating: 4.4,
           cost: "250.00DA",
           tags: ["High Protein"]
@@ -50,7 +55,11 @@ const mockDatabase = {
           name: "Baked Salmon with Vegetables",
           description: "Wild-caught salmon fillet baked with lemon and herbs. Served with roasted seasonal vegetables.",
           calories: 400,
-          macros: { protein: 50, carbs: 50, fats: 50 },
+          macros: {
+            protein: 50,
+            carbs: 50,
+            fats: 50
+          },
           rating: 4.9,
           cost: "280.00DA",
           tags: ["Keto", "Mediterranean"]
@@ -59,46 +68,343 @@ const mockDatabase = {
     },
     {
       day: "Monday",
-      totalCalories: 1600,
+      totalCalories: 1650,
       nutritionalBreakdown: {
-        carbs: 190,
-        fats: 40,
-        protein: 110
+        carbs: 205,
+        fats: 32,
+        protein: 115
       },
-      totalCost: "900.00DA",
+      totalCost: "950.00DA",
       meals: [
         {
           id: 4,
           type: "Breakfast",
-          name: "Oatmeal with Nuts",
-          description: "A warm bowl of oatmeal topped with mixed nuts and honey.",
-          calories: 350,
-          macros: { protein: 40, carbs: 60, fats: 40 },
+          name: "Greek Yogurt Parfait",
+          description: "Greek yogurt layered with fresh berries, honey, and homemade granola.",
+          calories: 380,
+          macros: {
+            protein: 45,
+            carbs: 55,
+            fats: 40
+          },
           rating: 4.6,
-          cost: "200.00DA",
+          cost: "180.00DA",
           tags: ["Vegetarian"]
         },
         {
           id: 5,
           type: "Lunch",
-          name: "Quinoa & Chickpea Salad",
-          description: "A nutritious salad with quinoa, chickpeas, and a lemon dressing.",
-          calories: 450,
-          macros: { protein: 50, carbs: 50, fats: 50 },
-          rating: 4.5,
-          cost: "300.00DA",
-          tags: ["High Fiber"]
+          name: "Mediterranean Bowl",
+          description: "Quinoa bowl with chickpeas, cucumber, tomato, olives, feta cheese and tahini dressing.",
+          calories: 520,
+          macros: {
+            protein: 45,
+            carbs: 65,
+            fats: 48
+          },
+          rating: 4.7,
+          cost: "270.00DA",
+          tags: ["Mediterranean", "Vegetarian"]
         },
         {
           id: 6,
           type: "Dinner",
-          name: "Steak with Mashed Potatoes",
-          description: "Juicy grilled steak with creamy mashed potatoes.",
-          calories: 550,
-          macros: { protein: 60, carbs: 50, fats: 40 },
+          name: "Turkey Meatballs with Zoodles",
+          description: "Lean turkey meatballs served over zucchini noodles with homemade marinara sauce.",
+          calories: 450,
+          macros: {
+            protein: 55,
+            carbs: 30,
+            fats: 42
+          },
+          rating: 4.5,
+          cost: "240.00DA",
+          tags: ["Low Carb"]
+        }
+      ]
+    },
+    {
+      day: "Tuesday",
+      totalCalories: 1750,
+      nutritionalBreakdown: {
+        carbs: 220,
+        fats: 38,
+        protein: 140
+      },
+      totalCost: "1050.00DA",
+      meals: [
+        {
+          id: 7,
+          type: "Breakfast",
+          name: "Protein Smoothie Bowl",
+          description: "Protein-packed smoothie with banana, berries, almond milk, topped with seeds and nuts.",
+          calories: 420,
+          macros: {
+            protein: 52,
+            carbs: 58,
+            fats: 45
+          },
           rating: 4.7,
-          cost: "400.00DA",
-          tags: ["Protein-rich"]
+          cost: "200.00DA",
+          tags: ["High Protein", "Vegetarian"]
+        },
+        {
+          id: 8,
+          type: "Lunch",
+          name: "Chicken Wrap",
+          description: "Whole grain wrap with grilled chicken, avocado, lettuce, tomato and light dressing.",
+          calories: 550,
+          macros: {
+            protein: 48,
+            carbs: 62,
+            fats: 52
+          },
+          rating: 4.3,
+          cost: "280.00DA",
+          tags: ["High Protein"]
+        },
+        {
+          id: 9,
+          type: "Dinner",
+          name: "Beef Stir Fry",
+          description: "Lean beef strips stir-fried with mixed vegetables and served with brown rice.",
+          calories: 480,
+          macros: {
+            protein: 58,
+            carbs: 55,
+            fats: 44
+          },
+          rating: 4.6,
+          cost: "300.00DA",
+          tags: ["High Protein"]
+        }
+      ]
+    },
+    {
+      day: "Wednesday",
+      totalCalories: 1680,
+      nutritionalBreakdown: {
+        carbs: 200,
+        fats: 35,
+        protein: 125
+      },
+      totalCost: "980.00DA",
+      meals: [
+        {
+          id: 10,
+          type: "Breakfast",
+          name: "Veggie Omelette",
+          description: "Three egg omelette with spinach, mushrooms, onions and a sprinkle of cheese.",
+          calories: 350,
+          macros: {
+            protein: 48,
+            carbs: 42,
+            fats: 50
+          },
+          rating: 4.8,
+          cost: "190.00DA",
+          tags: ["Keto", "Vegetarian"]
+        },
+        {
+          id: 11,
+          type: "Lunch",
+          name: "Tuna Salad Sandwich",
+          description: "Whole grain bread with tuna salad, lettuce, tomato and a side of fresh fruits.",
+          calories: 480,
+          macros: {
+            protein: 52,
+            carbs: 58,
+            fats: 45
+          },
+          rating: 4.2,
+          cost: "260.00DA",
+          tags: ["High Protein"]
+        },
+        {
+          id: 12,
+          type: "Dinner",
+          name: "Vegetable Curry",
+          description: "Mixed vegetables in a flavorful curry sauce served with a small portion of basmati rice.",
+          calories: 420,
+          macros: {
+            protein: 45,
+            carbs: 52,
+            fats: 48
+          },
+          rating: 4.7,
+          cost: "230.00DA",
+          tags: ["Vegetarian"]
+        }
+      ]
+    },
+    {
+      day: "Thursday",
+      totalCalories: 1700,
+      nutritionalBreakdown: {
+        carbs: 215,
+        fats: 37,
+        protein: 130
+      },
+      totalCost: "1020.00DA",
+      meals: [
+        {
+          id: 13,
+          type: "Breakfast",
+          name: "Overnight Oats",
+          description: "Oats soaked overnight with almond milk, chia seeds, and topped with fresh fruits.",
+          calories: 380,
+          macros: {
+            protein: 42,
+            carbs: 60,
+            fats: 44
+          },
+          rating: 4.5,
+          cost: "175.00DA",
+          tags: ["Vegetarian"]
+        },
+        {
+          id: 14,
+          type: "Lunch",
+          name: "Quinoa Salad",
+          description: "Quinoa with mixed vegetables, chickpeas, and lemon-herb dressing.",
+          calories: 510,
+          macros: {
+            protein: 48,
+            carbs: 62,
+            fats: 46
+          },
+          rating: 4.6,
+          cost: "245.00DA",
+          tags: ["Vegetarian", "Mediterranean"]
+        },
+        {
+          id: 15,
+          type: "Dinner",
+          name: "Grilled Steak",
+          description: "Lean grilled steak with roasted sweet potatoes and steamed broccoli.",
+          calories: 520,
+          macros: {
+            protein: 58,
+            carbs: 52,
+            fats: 50
+          },
+          rating: 4.9,
+          cost: "320.00DA",
+          tags: ["High Protein"]
+        }
+      ]
+    },
+    {
+      day: "Friday",
+      totalCalories: 1630,
+      nutritionalBreakdown: {
+        carbs: 195,
+        fats: 34,
+        protein: 120
+      },
+      totalCost: "930.00DA",
+      meals: [
+        {
+          id: 16,
+          type: "Breakfast",
+          name: "Protein Pancakes",
+          description: "Protein-enriched pancakes topped with fresh berries and a light drizzle of maple syrup.",
+          calories: 420,
+          macros: {
+            protein: 45,
+            carbs: 52,
+            fats: 42
+          },
+          rating: 4.7,
+          cost: "210.00DA",
+          tags: ["High Protein"]
+        },
+        {
+          id: 17,
+          type: "Lunch",
+          name: "Lentil Soup",
+          description: "Hearty lentil soup with carrots, celery, and onions, served with a small whole grain roll.",
+          calories: 480,
+          macros: {
+            protein: 46,
+            carbs: 58,
+            fats: 40
+          },
+          rating: 4.4,
+          cost: "220.00DA",
+          tags: ["Vegetarian"]
+        },
+        {
+          id: 18,
+          type: "Dinner",
+          name: "Baked Chicken",
+          description: "Herb-roasted chicken breast with quinoa and roasted seasonal vegetables.",
+          calories: 460,
+          macros: {
+            protein: 55,
+            carbs: 48,
+            fats: 42
+          },
+          rating: 4.6,
+          cost: "280.00DA",
+          tags: ["High Protein"]
+        }
+      ]
+    },
+    {
+      day: "Saturday",
+      totalCalories: 1780,
+      nutritionalBreakdown: {
+        carbs: 225,
+        fats: 40,
+        protein: 135
+      },
+      totalCost: "1080.00DA",
+      meals: [
+        {
+          id: 19,
+          type: "Breakfast",
+          name: "Breakfast Burrito",
+          description: "Whole grain wrap filled with scrambled eggs, black beans, avocado, and salsa.",
+          calories: 450,
+          macros: {
+            protein: 48,
+            carbs: 55,
+            fats: 46
+          },
+          rating: 4.8,
+          cost: "230.00DA",
+          tags: ["High Protein"]
+        },
+        {
+          id: 20,
+          type: "Lunch",
+          name: "Poke Bowl",
+          description: "Fresh raw fish with rice, avocado, cucumber, and sesame-soy dressing.",
+          calories: 520,
+          macros: {
+            protein: 52,
+            carbs: 60,
+            fats: 48
+          },
+          rating: 4.9,
+          cost: "350.00DA",
+          tags: ["High Protein"]
+        },
+        {
+          id: 21,
+          type: "Dinner",
+          name: "Vegetable Pasta",
+          description: "Whole grain pasta with mixed vegetables in a light tomato sauce.",
+          calories: 480,
+          macros: {
+            protein: 42,
+            carbs: 65,
+            fats: 44
+          },
+          rating: 4.5,
+          cost: "260.00DA",
+          tags: ["Vegetarian"]
         }
       ]
     }
@@ -110,40 +416,55 @@ function MealCard() {
   const currentDay = mockDatabase.days[currentDayIndex];
   const [selectedMealType, setSelectedMealType] = useState("Breakfast");
 
+  // Navigation functions to move between days
   const handlePreviousDay = () => {
-    setCurrentDayIndex(prev => (prev === 0 ? mockDatabase.days.length - 1 : prev - 1));
+    setCurrentDayIndex(prevIndex => 
+      prevIndex === 0 ? mockDatabase.days.length - 1 : prevIndex - 1
+    );
   };
 
   const handleNextDay = () => {
-    setCurrentDayIndex(prev => (prev === mockDatabase.days.length - 1 ? 0 : prev + 1));
+    setCurrentDayIndex(prevIndex => 
+      prevIndex === mockDatabase.days.length - 1 ? 0 : prevIndex + 1
+    );
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-4 font-sans">
+    <div className="w-full max-w-4xl mx-auto p-4 font-sans bg-white text-gray-800">
       <div className="text-center mb-8">
         <h1 className="text-4xl font-bold text-gray-700 mb-2">
-          Here's Your Personalized<br />
-          Meal Plan, <span className="text-orange-400">{mockDatabase.user.name}</span>
+          Here's Your Personalized<br />Meal Plan, <span className="text-orange-400">{mockDatabase.user.name}</span>
         </h1>
         <p className="text-sm text-gray-400 max-w-md mx-auto">
-          Custom meal plan designed to meet your nutritional goals and food preferences.
+          Custom meal plan designed to meet your nutritional goals and food preferences. 
+          Adjust and customize as needed to fit your lifestyle.
         </p>
       </div>
 
       <div className="flex items-center justify-center space-x-4 mb-6">
-        <button onClick={handlePreviousDay} className="p-1" title='blank'>
-          <ChevronLeftIcon boxSize={5} color="gray.500" />
+        <button 
+          onClick={handlePreviousDay} 
+          className="p-1 hover:bg-gray-100 rounded-full transition-colors"
+          aria-label="Previous day"
+        >
+          <ChevronLeft className="w-5 h-5 text-gray-500" />
         </button>
         <h2 className="text-xl font-medium text-gray-700">{currentDay.day}</h2>
-        <button onClick={handleNextDay} className="p-1" title='blank'>
-          <ChevronRightIcon boxSize={5} color="gray.500" />
+        <button 
+          onClick={handleNextDay} 
+          className="p-1 hover:bg-gray-100 rounded-full transition-colors"
+          aria-label="Next day"
+        >
+          <ChevronRight className="w-5 h-5 text-gray-500" />
         </button>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+        {/* Daily Calories */}
         <div className="text-center">
           <p className="text-orange-400 font-medium mb-2">Daily calories :</p>
           <div className="relative mx-auto w-36 h-36">
+            {/* Circular progress bar */}
             <svg className="w-full h-full" viewBox="0 0 36 36">
               <path
                 d="M18 2.0845
@@ -152,6 +473,7 @@ function MealCard() {
                 fill="none"
                 stroke="#E8F5E9"
                 strokeWidth="3"
+                strokeDasharray="100, 100"
               />
               <path
                 d="M18 2.0845
@@ -165,11 +487,12 @@ function MealCard() {
             </svg>
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
               <span className="text-2xl font-bold text-gray-700">{currentDay.totalCalories}</span>
-              <Icon as={FireIcon} boxSize={4} color="orange.500" />
+              <Flame className="w-4 h-4 text-orange-500" />
             </div>
           </div>
         </div>
 
+        {/* Nutritional Breakdown */}
         <div className="text-center">
           <p className="text-orange-400 font-medium mb-4">Nutritional Breakdown :</p>
           <div className="flex justify-center space-x-6">
@@ -188,18 +511,24 @@ function MealCard() {
           </div>
         </div>
 
+        {/* Total Cost */}
         <div className="text-center">
           <p className="text-orange-400 font-medium mb-4">Total cost for today :</p>
           <p className="text-3xl font-bold text-gray-700">{currentDay.totalCost}</p>
         </div>
       </div>
 
+      {/* Meal Type Selector */}
       <div className="flex justify-center mb-6">
         <div className="bg-gray-100 rounded-full p-1 inline-flex">
           {["Breakfast", "Lunch", "Dinner"].map(mealType => (
             <button
               key={mealType}
-              className={`px-6 py-1 rounded-full text-sm ${selectedMealType === mealType ? "bg-orange-400 text-white" : "text-gray-500"}`}
+              className={`px-6 py-1 rounded-full text-sm ${
+                selectedMealType === mealType
+                  ? "bg-orange-400 text-white"
+                  : "text-gray-500 hover:bg-gray-200"
+              }`}
               onClick={() => setSelectedMealType(mealType)}
             >
               {mealType}
@@ -208,12 +537,14 @@ function MealCard() {
         </div>
       </div>
 
+      {/* Meal Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
         {currentDay.meals
           .filter(meal => meal.type === selectedMealType)
           .map(meal => (
-            <div key={meal.id} className="border border-gray-200 rounded-lg overflow-hidden">
+            <div key={meal.id} className="border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
               <div className="bg-gray-200 h-40 relative">
+                {/* Placeholder for meal image */}
                 <div className="absolute bottom-2 right-2 bg-white rounded-md px-2 py-1 text-xs font-medium">
                   {meal.cost}
                 </div>
@@ -249,8 +580,8 @@ function MealCard() {
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {meal.tags.map(tag => (
-                    <span
-                      key={tag}
+                    <span 
+                      key={tag} 
                       className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full"
                     >
                       {tag}
@@ -262,13 +593,14 @@ function MealCard() {
           ))}
       </div>
 
+      {/* Footer buttons */}
       <div className="flex flex-col items-center space-y-2">
-        <button className="bg-green-500 text-white py-3 px-8 rounded-full flex items-center justify-center w-64">
-          <CalendarIcon boxSize={4} mr={2} />
+        <button className="bg-green-500 hover:bg-green-600 text-white py-3 px-8 rounded-full flex items-center justify-center w-64 transition-colors">
+          <Calendar className="w-4 h-4 mr-2" />
           Weekly view
         </button>
-        <button className="text-gray-500 py-2 px-4 rounded-full border border-gray-200 flex items-center justify-center w-64">
-          <Icon as={PhoneIcon} boxSize={4} mr={2} />
+        <button className="text-gray-500 hover:text-gray-700 py-2 px-4 rounded-full border border-gray-200 hover:border-gray-300 flex items-center justify-center w-64 transition-colors">
+          <Home className="w-4 h-4 mr-2" />
           return to homescreen
         </button>
       </div>
