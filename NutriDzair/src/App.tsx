@@ -1,10 +1,11 @@
 import MealCard from './pages/MealCard'
+import MealPlanner from './pages/MealPlanner/MealPlanner'
 function App() {
 
   return (
     <>
-  <h1>Welcome to NutriDzair</h1>
   <MealCard/>
+  <MealPlanner/>
   </>
   )
 }
