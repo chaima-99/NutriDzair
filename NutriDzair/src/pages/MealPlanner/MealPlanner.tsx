@@ -1,5 +1,5 @@
-import "./MealPlanner.css";
-import Hero from "./hero.tsx";
+import "../../styles/MealPlanner.css";
+import Hero from "../../Components/hero.tsx";
 
 function MealPlanner() {
 return (

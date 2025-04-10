@@ -1,4 +1,3 @@
-import "./hero.css"
 import {
     Button,
     Steps,

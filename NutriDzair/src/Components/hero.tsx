@@ -1,20 +1,8 @@
-import "./hero.css"
+import "../styles/hero.css"
 import Form1 from "./form1"
 import Form2 from "./form2"
 import Form3 from "./form3"
-import {
-    Button,
-    // ButtonGroup,
-    Steps,
-    Field,
-    Input,
-    InputGroup,
-    RadioGroup,
-    Slider,
-    Select,
-    Portal,
-    createListCollection,
-    // NumberInput,
+import {Button,Steps,
 } from "@chakra-ui/react"
 import { useEffect, useState, useRef} from "react"
 import { Icon } from "@chakra-ui/react"
@@ -25,7 +13,7 @@ function Hero() {
     
     //*************************  references declaration  *************************
     const title = useRef<HTMLHeadingElement>(null)
-    const [step, setStep] = useState(3)
+    const [step, setStep] = useState(0)
     //updating the title of the form based on the step
     useEffect(() => {
         switch (step) {

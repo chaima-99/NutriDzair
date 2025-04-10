@@ -5,11 +5,7 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}", // Path to your JS/TS/JSX/TSX files
   ],
   theme: {
-    extend: {
-      fontFamily: {
-        poppins: ['Poppins', 'sans-serif'],
-      },
-    },
+    extend: {},
   },
   plugins: [],
 }
