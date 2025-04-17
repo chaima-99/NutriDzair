@@ -1,5 +1,5 @@
 // src/App.jsx
-import { useState } from 'react';
+import  { useState } from 'react';
 import { ChevronLeft, ChevronRight, Flame, Home, Calendar } from 'lucide-react';
 
 // Mock database with all days of the week
@@ -430,7 +430,7 @@ function MealCard() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 font-sans bg-white text-gray-800">
+    <div className="max-w-4xl mx-auto p-4 font-sans bg-white text-gray-800">
       <div className="text-center mb-8">
         <h1 className="text-4xl font-bold text-gray-700 mb-2">
           Here's Your Personalized<br />Meal Plan, <span className="text-orange-400">{mockDatabase.user.name}</span>
