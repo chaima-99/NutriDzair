@@ -1,7 +1,6 @@
 // src/App.jsx
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight, Flame, Home, Calendar } from 'lucide-react';
-
 // Mock database with all days of the week
 const mockDatabase = {
   user: {
@@ -430,39 +429,39 @@ function MealCard() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 font-sans bg-white text-gray-800">
+    <div className="w-full max-w-7xl mx-auto text-xl p-4 font-sans bg-white text-gray-800">
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold text-gray-700 mb-2">
+        <h1 className="text-6xl font-bold text-gray-700 mb-8">
           Here's Your Personalized<br />Meal Plan, <span className="text-orange-400">{mockDatabase.user.name}</span>
         </h1>
-        <p className="text-sm text-gray-400 max-w-md mx-auto">
+        <p className="text-xl text-gray-400 max-w-md mx-auto">
           Custom meal plan designed to meet your nutritional goals and food preferences. 
           Adjust and customize as needed to fit your lifestyle.
         </p>
       </div>
 
-      <div className="flex items-center justify-center space-x-4 mb-6">
+      <div className="flex items-center justify-center space-x-4 mb-6 ">
         <button 
           onClick={handlePreviousDay} 
           className="p-1 hover:bg-gray-100 rounded-full transition-colors"
           aria-label="Previous day"
         >
-          <ChevronLeft className="w-5 h-5 text-gray-500" />
+          <ChevronLeft className="w-7 h-7 text-gray-500" />
         </button>
-        <h2 className="text-xl font-medium text-gray-700">{currentDay.day}</h2>
+        <h2 className="text-2xl font-medium text-gray-700">{currentDay.day}</h2>
         <button 
           onClick={handleNextDay} 
           className="p-1 hover:bg-gray-100 rounded-full transition-colors"
           aria-label="Next day"
         >
-          <ChevronRight className="w-5 h-5 text-gray-500" />
+          <ChevronRight className="w-7 h-7 text-gray-500" />
         </button>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+      <div className="max-w-full grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 text-2xl">
         {/* Daily Calories */}
         <div className="text-center">
-          <p className="text-orange-400 font-medium mb-2">Daily calories :</p>
+          <p className="text-orange-400 font-medium mb-2 text-2xl">Daily calories :</p>
           <div className="relative mx-auto w-36 h-36">
             {/* Circular progress bar */}
             <svg className="w-full h-full" viewBox="0 0 36 36">
@@ -487,7 +486,7 @@ function MealCard() {
             </svg>
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
               <span className="text-2xl font-bold text-gray-700">{currentDay.totalCalories}</span>
-              <Flame className="w-4 h-4 text-orange-500" />
+              <Flame className="w-6 h-6 text-orange-500" />
             </div>
           </div>
         </div>
@@ -520,14 +519,14 @@ function MealCard() {
 
       {/* Meal Type Selector */}
       <div className="flex justify-center mb-6">
-        <div className="bg-gray-100 rounded-full p-1 inline-flex">
+        <div className="bg-gray-100 rounded-full p-2 inline-flex">
           {["Breakfast", "Lunch", "Dinner"].map(mealType => (
             <button
               key={mealType}
-              className={`px-6 py-1 rounded-full text-sm ${
+              className={`px-6 py-1 rounded-full text-m ${
                 selectedMealType === mealType
                   ? "bg-orange-400 text-white"
-                  : "text-gray-500 hover:bg-gray-200"
+                  : "text-gray-600 hover:bg-gray-300"
               }`}
               onClick={() => setSelectedMealType(mealType)}
             >
@@ -538,29 +537,29 @@ function MealCard() {
       </div>
 
       {/* Meal Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
         {currentDay.meals
           .filter(meal => meal.type === selectedMealType)
           .map(meal => (
             <div key={meal.id} className="border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-              <div className="bg-gray-200 h-40 relative">
+              <div className="bg-gray-200 h-60 relative">
                 {/* Placeholder for meal image */}
-                <div className="absolute bottom-2 right-2 bg-white rounded-md px-2 py-1 text-xs font-medium">
+                <div className="absolute bottom-2 right-2 bg-white rounded-md px-2 py-1 text-xl font-medium">
                   {meal.cost}
                 </div>
               </div>
               <div className="p-4">
-                <div className="flex justify-between items-center mb-2">
-                  <h3 className="font-medium text-gray-800">{meal.name}</h3>
-                  <div className="flex items-center text-yellow-500">
-                    <span className="text-xs mr-1">{meal.rating}/5</span>
-                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                <div className="flex justify-between items-center mb-4 h-20">
+                  <h3 className="font-bold text-gray-800">{meal.name}</h3>
+                  <div className="flex items-center text-yellow-500 font-medium">
+                    <span className="text-m mr-1">{meal.rating}/5</span>
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   </div>
                 </div>
-                <p className="text-xs text-gray-500 mb-4">{meal.description}</p>
-                <div className="flex justify-between text-xs text-gray-600 mb-4">
+                <p className="text-sm text-gray-600 mb-4">{meal.description}</p>
+                <div className="flex justify-between text-xs text-gray-700 mb-4">
                   <div className="text-center">
                     <span className="block font-medium">{meal.calories}kcal</span>
                     <span>calories</span>
@@ -582,7 +581,7 @@ function MealCard() {
                   {meal.tags.map(tag => (
                     <span 
                       key={tag} 
-                      className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full"
+                      className="text-s bg-green-200 text-green-800 px-2 py-1 rounded-full"
                     >
                       {tag}
                     </span>
@@ -596,12 +595,12 @@ function MealCard() {
       {/* Footer buttons */}
       <div className="flex flex-col items-center space-y-2">
         <button className="bg-green-500 hover:bg-green-600 text-white py-3 px-8 rounded-full flex items-center justify-center w-64 transition-colors">
-          <Calendar className="w-4 h-4 mr-2" />
+          <Calendar className="w-6 h-6 mr-2" />
           Weekly view
         </button>
-        <button className="text-gray-500 hover:text-gray-700 py-2 px-4 rounded-full border border-gray-200 hover:border-gray-300 flex items-center justify-center w-64 transition-colors">
-          <Home className="w-4 h-4 mr-2" />
-          return to homescreen
+        <button className="text-gray-500 hover:text-gray-700 py-2 px-4 rounded-full border border-gray-200 hover:border-gray-300 flex items-center justify-center w-75 transition-colors">
+          <Home className="w-6 h-6 mr-2" />
+          <a href="Homepages.tsx">return to homescreen</a>
         </button>
       </div>
     </div>
