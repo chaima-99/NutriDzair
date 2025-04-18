@@ -21,9 +21,7 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <RouterProvider router={router}>
-      <h1>Welcome to NutriDzair</h1>
-    </RouterProvider>
+    <RouterProvider router={router} />
   );
 }
 
