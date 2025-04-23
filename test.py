@@ -1,2 +1,2 @@
 a = [[1,2,3], [4,5,6]]
-print ( all ( x is not None for row in a for x in row) ) 
+3f076e116bcf29996f068d30ea9df1167c8ac95e
