@@ -447,9 +447,6 @@ function MealCard() {
 
   // Return null if the data is not yet loaded
   if (!mockDatabase) return null;
-  // if (!mockDatabase) {
-  //   return <div>Loading...</div>;
-  // }
 
   const currentDay = mockDatabase.days[currentDayIndex];
   const [selectedMealType, setSelectedMealType] = useState("Breakfast");

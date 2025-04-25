@@ -5,7 +5,7 @@ import HomePage from './pages/Homepage';
 import MealPlanner from './pages/MealPlanner/MealPlanner';
 import Loading from './pages/loading';
 // Create router with all your routes
-const router = createBrowserRouter([
+/*const router = createBrowserRouter([
   {
     path: '/',
     element: <HomePage />,

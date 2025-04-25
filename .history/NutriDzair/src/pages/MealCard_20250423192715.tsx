@@ -1,3 +1,38 @@
+interface NutritionalBreakdown {
+  carbs: number;
+  fats: number;
+  protein: number;
+}
+
+interface Meal {
+  id: number;
+  type: string;
+  name: string;
+  description: string;
+  calories: number;
+  macros: NutritionalBreakdown;
+  rating: number;
+  cost: string;
+  tags: string[];
+}
+
+interface Day {
+  day: string;
+  totalCalories: number;
+  nutritionalBreakdown: NutritionalBreakdown;
+  totalCost: string;
+  meals: Meal[];
+}
+
+interface MockDatabase {
+  user: {
+    name: string;
+    dailyCalorieGoal: number;
+  };
+  days: Day[];
+}
+
+
 // src/App.jsx
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Flame, Home, Calendar } from 'lucide-react';
@@ -428,18 +463,13 @@ import { ChevronLeft, ChevronRight, Flame, Home, Calendar } from 'lucide-react';
 //     );
 //   };
 
-//by me abderahim
-//fetching the data from the JSON file that we get after doing the search
-
-import { mockDatabase } from './Database_result_interface';
-
 function MealCard() {
   const [currentDayIndex, setCurrentDayIndex] = useState(0);
   const [mockDatabase, setMockDatabase] = useState(null);
 
   // Fetch the mock database from the JSON file
   useEffect(() => {
-    fetch('../Backend/mockDatabase.json')
+    fetch('/mockDatabase.json')
       .then((response) => response.json())
       .then((data) => setMockDatabase(data))
       .catch((error) => console.error('Error fetching the data:', error));
@@ -447,9 +477,6 @@ function MealCard() {
 
   // Return null if the data is not yet loaded
   if (!mockDatabase) return null;
-  // if (!mockDatabase) {
-  //   return <div>Loading...</div>;
-  // }
 
   const currentDay = mockDatabase.days[currentDayIndex];
   const [selectedMealType, setSelectedMealType] = useState("Breakfast");

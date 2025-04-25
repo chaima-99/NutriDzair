@@ -1,5 +1,5 @@
 // src/App.jsx
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { ChevronLeft, ChevronRight, Flame, Home, Calendar } from 'lucide-react';
 // Mock database with all days of the week
 // const mockDatabase = {
@@ -410,59 +410,20 @@ import { ChevronLeft, ChevronRight, Flame, Home, Calendar } from 'lucide-react';
 //   ]
 // };
 
-// function MealCard() {
-//   const [currentDayIndex, setCurrentDayIndex] = useState(0);
-//   const currentDay = mockDatabase.days[currentDayIndex];
-//   const [selectedMealType, setSelectedMealType] = useState("Breakfast");
-
-//   // Navigation functions to move between days
-//   const handlePreviousDay = () => {
-//     setCurrentDayIndex(prevIndex => 
-//       prevIndex === 0 ? mockDatabase.days.length - 1 : prevIndex - 1
-//     );
-//   };
-
-//   const handleNextDay = () => {
-//     setCurrentDayIndex(prevIndex => 
-//       prevIndex === mockDatabase.days.length - 1 ? 0 : prevIndex + 1
-//     );
-//   };
-
-//by me abderahim
-//fetching the data from the JSON file that we get after doing the search
-
-import { mockDatabase } from './Database_result_interface';
-
 function MealCard() {
   const [currentDayIndex, setCurrentDayIndex] = useState(0);
-  const [mockDatabase, setMockDatabase] = useState(null);
-
-  // Fetch the mock database from the JSON file
-  useEffect(() => {
-    fetch('../Backend/mockDatabase.json')
-      .then((response) => response.json())
-      .then((data) => setMockDatabase(data))
-      .catch((error) => console.error('Error fetching the data:', error));
-  }, []);
-
-  // Return null if the data is not yet loaded
-  if (!mockDatabase) return null;
-  // if (!mockDatabase) {
-  //   return <div>Loading...</div>;
-  // }
-
   const currentDay = mockDatabase.days[currentDayIndex];
   const [selectedMealType, setSelectedMealType] = useState("Breakfast");
 
   // Navigation functions to move between days
   const handlePreviousDay = () => {
-    setCurrentDayIndex(prevIndex =>
+    setCurrentDayIndex(prevIndex => 
       prevIndex === 0 ? mockDatabase.days.length - 1 : prevIndex - 1
     );
   };
 
   const handleNextDay = () => {
-    setCurrentDayIndex(prevIndex =>
+    setCurrentDayIndex(prevIndex => 
       prevIndex === mockDatabase.days.length - 1 ? 0 : prevIndex + 1
     );
   };
