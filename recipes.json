@@ -1,6 +1,6 @@
 
 {
-  "Dinner": [
+  "dinner": [
     {
       "title": "vegan portuguese kale soup",
       "description": "For a quick main dish, serve up this vegan version of Portuguese kale soup, filled with juicy tomatoes, veggie patties, and creamy potatoes.",
@@ -52737,7 +52737,7 @@
       "allergies": []
     }
   ],
-  "Lunch": [
+  "lunch": [
     {
       "title": "guacamole with nopales (mexican cactus)",
       "description": "This easy recipe for guacamole con nopales (guacamole with cactus) comes straight from Mexico where guacamole comes in many yummy variations.",
