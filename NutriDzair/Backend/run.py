@@ -4,7 +4,6 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 
 from Projectalpha import toy_test_search
-
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
