@@ -1,7 +1,8 @@
 import React from 'react'
 import Image from '../../assets/Images/Background_image.jpg'
-
+import { useNavigate } from 'react-router-dom';
 const HeroSection = () => {
+    const navigate = useNavigate();
     return (
         <section className="h-screen min-w-full flex items-center justify-center bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${Image})` }}>
             <div className='flex flex-col items-center justify-between h-[max(45%,300px)] text-center '>
@@ -14,7 +15,7 @@ const HeroSection = () => {
                         <span className='text-[rgba(255,142,115,1)]'> perfect meal!</span>
                     </div>
                 </div>
-                <button 
+                <button onClick={() => navigate('/meal-planner')}
                     className='text-2xl mt-8 px-8 py-6 bg-[rgba(76,175,80,1)] hover:bg-green-700 text-white font-semibold md:text-2xl rounded-full transition-all duration-300'>
                     Get Started with NutriDzair
                 </button>                

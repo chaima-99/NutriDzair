@@ -3,8 +3,10 @@ import AboutPlate from '../../assets/images/AboutPlate.png'
 import Rectangle from '../../assets/images/Rectangle.png'
 import GreenFloatingLeaves1 from '../../assets/images/GreenFloatingLeaves1.png'
 import GreenFloatingLeaves2 from '../../assets/images/GreenFloatingLeaves2.png'
+import { useNavigate } from 'react-router-dom';
 
 const AboutSection = () => {
+    const navigate = useNavigate();
     return (
         <section className='h-[120dvh] min-w-full flex bg-[#ffffff] items-center justify-center p-10'>
             <div className='flex flex-col items-center justify-between h-[80%] text-center gap-20'>
@@ -46,7 +48,8 @@ const AboutSection = () => {
                                 Eat smarter, enjoy more, and discover meals that fit your lifestyle—only with <span className='text-[rgba(255,142,115,1)]'>NutriDzair</span>!
                             </p>
 
-                            <button className='text-2xl mt-8 px-8 py-6 bg-[rgba(76,175,80,1)] hover:bg-green-700 text-white font-semibold md:text-2xl rounded-full transition-all duration-300'>
+                            <button className='text-2xl mt-8 px-8 py-6 bg-[rgba(76,175,80,1)] hover:bg-green-700 text-white font-semibold md:text-2xl rounded-full transition-all duration-300'
+                            onClick={() => navigate('/meal-planner')}>
                                 Get Started with NutriDzair
                             </button>
                         </div>

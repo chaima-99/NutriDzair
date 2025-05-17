@@ -15,9 +15,9 @@ function Hero() {
     
     //*************************  references declaration  *************************
     const title = useRef<HTMLHeadingElement>(null)
-    const [step, setStep] = useState(2)
+    const [step, setStep] = useState(0)
     //updating the title of the form based on the step
-    const navigate = useNavigate(); // ✅ move to top level
+    const navigate = useNavigate();
     useEffect(() => {
         switch (step) {
             case 0:
